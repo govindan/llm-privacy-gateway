@@ -1,0 +1,32 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Java
+backend/target/
+backend/.idea/
+*.class
+*.jar
+!backend/src/main/resources/**/*.jar
+
+# Python
+privacy-detector/.venv/
+privacy-detector/__pycache__/
+privacy-detector/**/__pycache__/
+privacy-detector/.pytest_cache/
+*.pyc
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.cursor/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Logs
+*.log

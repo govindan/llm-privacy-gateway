@@ -1,0 +1,300 @@
+:root {
+  --ink: #152018;
+  --muted: #4d5a52;
+  --paper: #eef3ee;
+  --panel: #f7faf7;
+  --line: #c5d1c7;
+  --accent: #0f6b4c;
+  --accent-ink: #f4fff8;
+  --warn: #8a3b12;
+  --mark: #d8efe2;
+  --danger: #8f1d1d;
+  --shadow: 0 18px 40px rgba(21, 32, 24, 0.08);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(15, 107, 76, 0.12), transparent 34%),
+    linear-gradient(180deg, #f4f7f4 0%, var(--paper) 48%, #e7eee8 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0.75rem 0 0;
+  max-width: 42rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.controls,
+.composer,
+.audit,
+.pane {
+  background: color-mix(in srgb, var(--panel) 92%, white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.controls,
+.composer,
+.audit {
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  align-self: end;
+  gap: 0.55rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.token-field {
+  margin-top: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+button.primary {
+  background: #0b4f39;
+}
+
+.composer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.composer h2,
+.audit h2,
+.pane h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.status,
+.pane-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.error {
+  margin: 0.65rem 0 0;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pane {
+  padding: 1rem 1.1rem 1.1rem;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-body {
+  margin: 0.85rem 0 0;
+  flex: 1;
+  padding: 0.85rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  overflow: auto;
+}
+
+mark {
+  background: var(--mark);
+  color: var(--ink);
+  padding: 0 0.15em;
+  border-radius: 3px;
+}
+
+.entity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.entity-list li {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.86rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #e2efe8;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.action {
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.audit-table-wrap {
+  margin-top: 0.85rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.55rem 0.45rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .control-grid,
+  .panes {
+    grid-template-columns: 1fr;
+  }
+
+  .entity-list li {
+    grid-template-columns: 1fr;
+  }
+}
