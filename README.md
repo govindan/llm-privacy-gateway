@@ -4,7 +4,26 @@ End-to-end proof of concept for a privacy-preserving LLM gateway: sensitive valu
 
 **Governing spec:** `docs/`. Where documents conflict with accepted decisions, **`docs/16-decision-record.md` (D-001–D-018)** wins.
 
-## Implementation status
+## Project status
+
+| | |
+|--|--|
+| **Overall** | Runnable **PoC** (local Docker + Ollama). Not production-hardened. |
+| **MVP acceptance** | Criteria in `docs/15-acceptance-criteria.md` are **not fully signed off** until Phase 10 completes. |
+
+**Done**
+
+- Privacy pipeline: detect → policy → tokenize/sanitize → Ollama → response inspection
+- Encrypted token vault, tenant-scoped mappings, conversation + audit (metadata only)
+- JWT on `/api/v1`, optional dev token mint for the demo UI
+- Four-pane React UI at `http://localhost:3001`
+- Unit/integration tests for backend and detector (see `README` build section)
+
+**Not started**
+
+- **Phase 10 — End-to-end hardening** (`docs/14-implementation-plan.md`): negative paths, detector/Ollama outage, tenant isolation checks, log/PII verification, Compose validation, documentation pass
+
+**Phase breakdown**
 
 | Phase | Scope | Status |
 |-------|--------|--------|
@@ -18,7 +37,7 @@ End-to-end proof of concept for a privacy-preserving LLM gateway: sensitive valu
 | 7 | Response privacy | Done |
 | 8 | JWT + audit | Done |
 | 9 | React demo UI | Done |
-| 10 | E2E hardening | **Not started** (see `docs/14-implementation-plan.md`) |
+| 10 | E2E hardening | **To do** |
 
 ## Quick start (Docker Compose)
 
